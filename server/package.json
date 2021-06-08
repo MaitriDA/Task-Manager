@@ -1,0 +1,22 @@
+{
+  "name": "server",
+  "version": "1.0.0",
+  "description": "MERN task manager",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MaitriDA/Task-Manager.git"
+  },
+  "author": "Maitri Amin",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MaitriDA/Task-Manager/issues"
+  },
+  "homepage": "https://github.com/MaitriDA/Task-Manager#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
