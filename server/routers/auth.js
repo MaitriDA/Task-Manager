@@ -1,5 +1,7 @@
 const express=require('express');
 const router=express.Router();
+const bcrypt=require('bcryptjs');
+const jwt=require('jsonwebtoken');
 
 require('../db/connection');
 const User=require('../models/userSchema');
@@ -28,11 +30,18 @@ router.post('/register', async (req,res)=>{
         if(phoneExist){
             return res.status(422).json({error:'Phone Exist'});
         }
-    
+        
+        if(password!=cPassword){
+            return res.status(422).json({error:'Password not matching'});
+        }
+
         const user=new User({
             name,email,phone,password,cPassword
         })
         
+        //Hashing Password
+
+
         const registeredUser=await user.save();
         if(registeredUser){
             res.status(201).json({message:'Registeration Successful'});
@@ -55,16 +64,26 @@ router.post('/login',async (req,res)=>{
         }
 
         const loginUser=await User.findOne({email:email});
-        console.log(loginUser);
+
         if(loginUser){
+            const isMatch=await bcrypt.compare(password,loginUser.password);
+            if(!isMatch){
+                return res.status(400).json({message:"Invalid Credential"});
+            }
+            const token=await loginUser.generateAuthToken();
+            console.log(token);
+
+            res.cookie('Test',token);
+            
             res.json({message:"Login Successful"});
         }
         else{
-            res.status(400).json({error:"Login failed"})
+            return res.status(400).json({message:"Invalid Credential"});
         }
     }
     catch(err){
         console.log(err);
     }
 });
+
 module.exports=router;
