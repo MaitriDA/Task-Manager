@@ -1,6 +1,7 @@
 import React from 'react';
 import '../style/NavBar.css';
 // import 'bootstrap/dist/css/bootstrap.css';
+import {NavLink} from 'react-router-dom';
 
 const NavBar=()=>{
   return(
@@ -9,9 +10,9 @@ const NavBar=()=>{
         <div class="nav_brand">My Brand</div>
         <div class="nav_links">
             <ul class="nav_links_list">
-                <li><a href="/" class="home">HOME</a></li>
-                <li><a href="/login" class="login">LOGIN</a></li>
-                <li><a href="/register" class="signup">REGISTER</a></li>
+                <li><NavLink to="/" class="home">HOME</NavLink></li>
+                <li><NavLink to="/login" class="login">LOGIN</NavLink></li>
+                <li><NavLink to="/register" class="signup">REGISTER</NavLink></li>
             </ul>
         </div>
         

@@ -1,0 +1,71 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap');
+
+*{
+    margin: 0px;
+    padding: 0px;
+}
+.mainsigninCard{
+    width: 35%;
+    margin: auto;
+    margin-top: 85px;
+}
+.inputMainCard{
+    border: 1px solid #7b9ac4;
+    border-radius: 20px;
+}
+.signinHeading{
+    border: 2x solid #7b9ac4;
+    height: 65px;
+    background-color: #7b9ac4;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+}
+.signinText{
+    font-family: 'Montserrat', sans-serif;
+    font-size: 30px;
+    text-align: center;
+    color: white;
+    padding: 10px;
+}
+.inputName{
+    width: 300px;
+    margin: auto;
+    margin-top: 20px;
+}
+.container{
+    position: relative;
+}
+.signinBtn{
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    margin-top: 40px;
+}
+.signinbutton{
+    background-color: #18385e;
+    color: white;
+    font-family: 'Montserrat', sans-serif;
+}
+.signinbutton:hover{
+    color: #e7eef4;
+}
+.signUpLink{
+    color: #18385e;
+    font-weight: 500;
+    font-family: 'Montserrat', sans-serif;
+    text-decoration: underline;
+}
+.signUpLink:hover{
+    color: #227eee;
+}
+.dontHave{
+    color: rgb(97, 97, 97);
+    text-align: center;
+    margin-top: 70px;
+    margin-bottom: 20px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 300;
+}
