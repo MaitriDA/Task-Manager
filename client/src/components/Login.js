@@ -1,9 +1,11 @@
 import React from 'react';
 import '../style/Login.css';
+import NavBar from '../components/NavBar';
 
 const Login=()=>{
   return(
     <div>
+    <NavBar/>
       <div class="mainsigninCard">
         <div class="inputMainCard">
             <div class="signinHeading">

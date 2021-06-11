@@ -1,6 +1,5 @@
 import React from 'react';
 import Home from './components/Home';
-import NavBar from './components/NavBar';
 import {BrowserRouter,Route,Switch} from 'react-router-dom';
 import Login from './components/Login';
 import Register from './components/Register';
@@ -10,8 +9,6 @@ const App=()=>{
   return(
     <div>
     <BrowserRouter>
-      
-      <NavBar/>
       <Switch>
 
       <Route exact path="/">

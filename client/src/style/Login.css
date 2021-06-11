@@ -1,5 +1,6 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap');
-
+background-color: #03254c;
+    color: white;
+    font-family: 'Montserrat', sans-serif;
 *{
     margin: 0px;
     padding: 0px;
@@ -10,13 +11,13 @@
     margin-top: 85px;
 }
 .inputMainCard{
-    border: 1px solid #7b9ac4;
+    border: 1px solid #1167b1;
     border-radius: 20px;
 }
 .signinHeading{
-    border: 2x solid #7b9ac4;
+    border: 2x solid #1167b1;
     height: 65px;
-    background-color: #7b9ac4;
+    background-color: #1167b1;
     border-top-left-radius: 20px;
     border-top-right-radius: 20px;
 }
@@ -45,7 +46,7 @@
     margin-top: 40px;
 }
 .signinbutton{
-    background-color: #18385e;
+    background-color: #03254c;
     color: white;
     font-family: 'Montserrat', sans-serif;
 }

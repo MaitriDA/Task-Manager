@@ -1,9 +1,11 @@
 import React from 'react';
 import '../style/Register.css';
+import NavBar from '../components/NavBar';
 
 const Register = () => {
   return (
     <div>
+      <NavBar/>
       <div class="mainsignupCard">
         <div class="inputMainCard">
           <div class="signupHeading">

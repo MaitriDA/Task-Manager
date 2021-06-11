@@ -7,13 +7,13 @@
 .navbar_main{
     display: flex;
     flex-direction: row;
-    background-color: #18385e;
+    background-color: #03254c;
     font-family: 'Montserrat', sans-serif;
     height: 55px;
 }
 a{
     text-decoration: none;
-    color: #e7eef4;
+    color: #d0efff;
 }
 a:hover{
     color: #dfd7cc;
@@ -26,7 +26,7 @@ a:hover{
     padding: 5px;
     font-size: 25px;
     margin-top: 5px;
-    color: #e7eef4;
+    color: #d0efff;
 }
 .nav_links{
     display: flex;
@@ -35,7 +35,7 @@ a:hover{
     width: 300px;
     margin-left: auto;
     margin-right: 20px;
-    color: #e7eef4;
+    color: #d0efff;
     margin-top: 5px;
 }
 .nav_links_list{
