@@ -13,6 +13,7 @@ app.use(express.json());
 app.use(cors());
 app.use(cookieParser());
 app.use(require('./routers/auth'));
+app.use(require('./routers/task'));
 
 
 app.listen(PORT,()=>{

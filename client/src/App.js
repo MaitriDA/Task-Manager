@@ -3,6 +3,8 @@ import Home from './components/Home';
 import {BrowserRouter,Route,Switch} from 'react-router-dom';
 import Login from './components/Login';
 import Register from './components/Register';
+import NotFound from './components/NotFound';
+import TaskMain from './components/TaskMain';
 
 
 const App=()=>{
@@ -23,8 +25,12 @@ const App=()=>{
         <Register/>
       </Route>
 
+      <Route exact path="/task">
+        <TaskMain/>
+      </Route>
+
       <Route>
-        <h1>404</h1>
+        <NotFound/>
       </Route>
       </Switch>
     </BrowserRouter>

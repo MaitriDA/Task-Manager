@@ -3,6 +3,7 @@ const router=express.Router();
 const bcrypt=require('bcryptjs');
 const jwt=require('jsonwebtoken');
 
+
 require('../db/connection');
 const User=require('../models/userSchema');
 
@@ -10,7 +11,7 @@ router.get('/',(req,res)=>{
     res.send('hello world from auth.js');
 });
 
-router.post('/register', async (req,res)=>{
+router.post('/signUp', async (req,res)=>{
 
     const {name,email,phone,password,cPassword}=req.body;
     if(!name || !email || !phone || !password || !cPassword){
@@ -18,7 +19,7 @@ router.post('/register', async (req,res)=>{
     }
 
     try{
-
+        var validRegex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
         const emailExist=await User.findOne({email:email})
             
         if(emailExist){
@@ -60,7 +61,7 @@ router.post('/login',async (req,res)=>{
         const {email,password}=req.body;
 
         if(!email || !password){
-            return res.status(400).json({error:"Please enter the credentials"})
+            return res.status(422).json({error:"Field Required!"})
         }
 
         const loginUser=await User.findOne({email:email});
@@ -68,17 +69,16 @@ router.post('/login',async (req,res)=>{
         if(loginUser){
             const isMatch=await bcrypt.compare(password,loginUser.password);
             if(!isMatch){
-                return res.status(400).json({message:"Invalid Credential"});
+                return res.status(422).json({error:"Invalid Credential"});
             }
             const token=await loginUser.generateAuthToken();
-            console.log(token);
 
-            res.cookie('Test',token);
+            res.cookie('token',token);
             
             res.json({message:"Login Successful"});
         }
         else{
-            return res.status(400).json({message:"Invalid Credential"});
+            return res.status(422).json({error:"Invalid Credentials"});
         }
     }
     catch(err){

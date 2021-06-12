@@ -22,14 +22,24 @@
 .image{
     height: 500px;
 }
+.buttonContainer{
+    margin: auto;
+    width: 50%;
+    margin-top: 30px;
+}
 
+.buttonBox{
+    display: flex;
+    flex-direction: row; 
+    justify-content: space-around;
+}
 .button{
     display: flex;
     flex-direction: row;
     margin: 0;
     position:absolute;
     margin: auto;
-    margin-left: 150px;
+    
     margin-top: 50px;
 }
 

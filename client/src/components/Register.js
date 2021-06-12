@@ -1,8 +1,61 @@
-import React from 'react';
+import React, { useState } from 'react';
 import '../style/Register.css';
 import NavBar from '../components/NavBar';
+import {useHistory} from 'react-router-dom';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const Register = () => {
+  const history=useHistory();
+  const [user,setUser]=useState({
+    name:"",
+    email:"",
+    phone:"",
+    password:"",
+    cPassword:""
+  });
+
+  let name,value;
+  const handleInputs=(e)=>{
+    name=e.target.name;
+    value=e.target.value;
+    setUser({...user,[name]:value})
+  }
+
+  const postData = async (e) => {
+    e.preventDefault();
+    const {name,email,phone,password,cPassword}=user;
+    const res=await fetch('/signUp',{
+      method:'POST',
+      headers:{
+        "Content-Type":"application/json; charset=utf-8"
+      },
+      body:JSON.stringify({
+        "name":name,
+        "email":email,
+        "phone":phone,
+        "password":password,
+        "cPassword":cPassword
+      })
+    });
+
+    const stat=await res.status;
+    const data=await res.json();
+    console.log(data);
+    if(stat===422){
+      toast.warning(data.error);
+      console.log("Invalid credentials!");
+    }else if(stat===500){
+      toast.error("Registration Failed!");
+      console.log("Registration Failed!");
+    }
+    else if(stat===201){
+      toast.success("ok");
+      console.log("Registration Successful!");
+      history.push("/login");
+    }
+  }
+
   return (
     <div>
       <NavBar/>
@@ -14,7 +67,8 @@ const Register = () => {
             </div>
           </div>
           <div class="inputCard">
-            <form action="/registers" method="POST">
+            <form method="POST">
+            <ToastContainer position="top-center"/>
               <div class="leftRight">
                 <div class="leftInput">
                   <div class="input-group inputName">
@@ -34,7 +88,9 @@ const Register = () => {
                       type="text"
                       class="form-control"
                       placeholder="Name*"
-                      name="Name"
+                      name="name"
+                      value={user.name}
+                      onChange={handleInputs}
                       aria-label="Name"
                       aria-describedby="basic-addon1"
                     />
@@ -57,7 +113,9 @@ const Register = () => {
                       type="email"
                       class="form-control"
                       placeholder="Email*"
-                      name="Email"
+                      name="email"
+                      value={user.email}
+                      onChange={handleInputs}
                       aria-label="Email"
                       aria-describedby="basic-addon1"
                     />
@@ -83,7 +141,9 @@ const Register = () => {
                       type="text"
                       class="form-control"
                       placeholder="Contact"
-                      name="Contact"
+                      name="phone"
+                      value={user.phone}
+                      onChange={handleInputs}
                       aria-label="Conatct"
                       aria-describedby="basic-addon1"
                     />
@@ -107,6 +167,8 @@ const Register = () => {
                       class="form-control"
                       placeholder="Password*"
                       name="password"
+                      value={user.password}
+                      onChange={handleInputs}
                       aria-label="Password"
                       aria-describedby="basic-addon1"
                     />
@@ -128,7 +190,9 @@ const Register = () => {
                       type="password"
                       class="form-control"
                       placeholder="Confirm Password*"
-                      name="ConfirmPassword"
+                      name="cPassword"
+                      value={user.cPassword}
+                      onChange={handleInputs}
                       aria-label="Comfirm Password"
                       aria-describedby="basic-addon1"
                     />
@@ -138,7 +202,7 @@ const Register = () => {
               </div>
               <div class="container">
                 <div class="signupBtn">
-                  <button type="submit" class="btn signupbutton">SUBMIT</button>
+                  <button type="submit" class="btn signupbutton" onClick={postData}>SUBMIT</button>
                 </div>
               </div>
             </form>
