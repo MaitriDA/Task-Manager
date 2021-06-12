@@ -7,7 +7,6 @@ require('../db/connection');
 const User=require('../models/userSchema');
 
 taskRouter.get('/task',authenticate,(req,res)=>{
-    console.log('Hello from task page');
     res.send(req.rootUser);
 });
 
