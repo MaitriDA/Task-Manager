@@ -1,13 +1,15 @@
 import React from 'react';
 import Home from './components/Home';
-import {BrowserRouter,Route,Switch} from 'react-router-dom';
+import {BrowserRouter,Route,Switch,useParams} from 'react-router-dom';
 import Login from './components/Login';
 import Register from './components/Register';
 import NotFound from './components/NotFound';
 import TaskMain from './components/TaskMain';
+import AddContact from './components/AddContact';
 
 
 const App=()=>{
+  
   return(
     <div>
     <BrowserRouter>
@@ -25,8 +27,12 @@ const App=()=>{
         <Register/>
       </Route>
 
-      <Route exact path="/task">
+      <Route exact path="/task/:id">
         <TaskMain/>
+      </Route>
+
+      <Route exact path="/add">
+        <AddContact/>
       </Route>
 
       <Route>

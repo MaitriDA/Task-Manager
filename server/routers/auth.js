@@ -1,3 +1,5 @@
+//Router code for login and signup
+
 const express=require('express');
 const router=express.Router();
 const bcrypt=require('bcryptjs');
@@ -19,7 +21,6 @@ router.post('/signUp', async (req,res)=>{
     }
 
     try{
-        var validRegex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
         const emailExist=await User.findOne({email:email})
             
         if(emailExist){

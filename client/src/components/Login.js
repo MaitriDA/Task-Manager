@@ -2,8 +2,9 @@ import React, {useState} from 'react';
 import '../style/Login.css';
 import NavBar from '../components/NavBar';
 import {useHistory} from 'react-router';
-import { ToastContainer, toast } from 'react-toastify';
+import {ToastContainer, toast} from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+
 
 const Login = () => {
   const history = useHistory ();
@@ -13,41 +14,60 @@ const Login = () => {
   });
 
   let name, value;
-  const handleInputs=(e)=>{
-      name=e.target.name;
-      value=e.target.value;
-      setUser({...user,[name]:value})
+  const handleInputs = e => {
+    name = e.target.name;
+    value = e.target.value;
+    setUser ({...user, [name]: value});
+  };
+
+  const callgetID = async () => {
+    try{
+      const res = await fetch('/getID')
+      const data=await res.json();
+      
+      history.push(`/task/${data}`);
+
+      if(!res.status===200){
+        const error=new Error(res.error);
+        throw error;
+      }
+    }
+    catch(err){
+      console.log(err);
+      history.push('/login');
+    }
   }
 
-  const handleLogin =async(e)=>{
-      e.preventDefault();
-      const {email,password}=user;
-      const res=await fetch('/login',{
-        method:'POST',
-        headers:{
-            "Content-Type":"application/json; charset=utf-8"
-        },
-        body:JSON.stringify({
-            "email":email,
-            "password":password
-        })
-      })
-      const stat=await res.status;
-    const data=await res.json();
-    console.log(data);
-    if(stat===422){
-      toast.warning(data.error);
-      console.log("Invalid credentials!");
-    }else if(stat===500){
-      toast.error("Login Failed!");
-      console.log("Login Failed!");
+  
+  const handleLogin = async e => {
+    e.preventDefault ();
+    const {email, password} = user;
+    const res = await fetch ('/login', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json; charset=utf-8',
+      },
+      body: JSON.stringify ({
+        email: email,
+        password: password,
+      }),
+    });
+    const stat = await res.status;
+    const data = await res.json ();
+    console.log (data);
+    if (stat === 422) {
+      toast.warning (data.error);
+      console.log ('Invalid credentials!');
+    } else if (stat === 500) {
+      toast.error ('Login Failed!');
+      console.log ('Login Failed!');
+    } else {
+      toast.success ('Login Successful!');
+      console.log ('Login Successful!');
+      callgetID();
+      // history.push ('/task');
     }
-    else{
-      toast.success("Login Successful!");
-      console.log("Login Successful!");
-      history.push("/task");
-    }
-  }
+  };
   return (
     <div>
       <NavBar />
@@ -60,7 +80,7 @@ const Login = () => {
           </div>
           <div class="inputCard">
             <form className="form" method="POST">
-            <ToastContainer position="top-center"/>
+              <ToastContainer position="top-center" />
 
               <div class="input-group inputName">
                 <span class="input-group-text" id="addon-wrapping">
@@ -112,7 +132,13 @@ const Login = () => {
               </div>
               <div class="container">
                 <div class="signinBtn">
-                  <button type="submit" class="btn signinbutton" onClick={handleLogin}>SUBMIT</button>
+                  <button
+                    type="submit"
+                    class="btn signinbutton"
+                    onClick={handleLogin}
+                  >
+                    SUBMIT
+                  </button>
                 </div>
               </div>
             </form>

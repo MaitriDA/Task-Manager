@@ -9,11 +9,13 @@ require('./db/connection');
 const PORT=process.env.PORT;
 const User=require('./models/userSchema');
 
+
 app.use(express.json());
 app.use(cors());
 app.use(cookieParser());
 app.use(require('./routers/auth'));
-app.use(require('./routers/task'));
+app.use(require('./routers/getUser'));
+app.use(require('./routers/taskMain'));
 
 
 app.listen(PORT,()=>{
