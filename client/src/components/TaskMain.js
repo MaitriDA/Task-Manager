@@ -3,6 +3,11 @@ import { useHistory } from 'react-router';
 import {NavLink, useParams} from 'react-router-dom';
 import '../style/TaskMain.css';
 import axios from 'axios';
+import {getTask} from '../service/api';
+import { Button, Table, TableBody, TableCell, TableHead, TableRow } from "@material-ui/core";
+import { makeStyles } from '@material-ui/core';
+import SeeTask from './Task/SeeTask';
+
 
 const TaskMain=()=>{
   const url='http://localhost:5000';
@@ -22,16 +27,11 @@ const TaskMain=()=>{
       console.log(err);
     }
   }
-
-
-  const [userID,setUserID]=useState();
-  const {id}=useParams();
-  console.log(id);
-  console.log(name);
   
   
   useEffect(()=>{
     callgetID();
+    
   },[])
   return(
     <div>
@@ -49,6 +49,8 @@ const TaskMain=()=>{
         </button>
         </div>
       </div>
+      <SeeTask/>
+      
     </div>
     
   )

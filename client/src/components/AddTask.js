@@ -38,14 +38,13 @@ const AddContact=()=>{
 
     const onValueChange=(e)=>{
         setConatct({...contact,[e.target.name]:e.target.value})
-        console.log(contact);
     }
 
     const addContactDetail=async()=>{
         await addContact(contact);
         history.goBack();
     }
-    
+      
     // await addContact(contact);
     return(
         <div>

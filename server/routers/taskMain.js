@@ -23,4 +23,14 @@ taskMain.post('/add',async (req,res)=>{
     }
 });
 
+taskMain.get('/see',async (req,res)=>{
+    try{
+        let task=await Task.find();
+        res.json(task);
+    }
+    catch(error){
+        res.json(error);
+    }
+})
+
 module.exports=taskMain;

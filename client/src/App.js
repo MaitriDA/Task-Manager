@@ -5,7 +5,7 @@ import Login from './components/Login';
 import Register from './components/Register';
 import NotFound from './components/NotFound';
 import TaskMain from './components/TaskMain';
-import AddContact from './components/AddContact';
+import AddTask from './components/Task/AddTask';
 
 
 const App=()=>{
@@ -32,7 +32,7 @@ const App=()=>{
       </Route>
 
       <Route exact path="/add">
-        <AddContact/>
+        <AddTask/>
       </Route>
 
       <Route>
