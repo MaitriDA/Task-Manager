@@ -7,13 +7,14 @@ require('../db/connection');
 const User=require('../models/userSchema');
 const Task=require('../models/taskSchema');
 
-taskMain.post('/add',async (req,res)=>{
+taskMain.post('/add/:id',async (req,res)=>{
     const task=req.body;
-    console.log(task);
+    const id=req.params.id;
+    console.log(id);
     try{
         console.log('inside try block');        
         const user=await User.findOneAndUpdate({
-            email:'mdamin_b19@et.vjti.ac.in'
+            _id:id
         },{
             $push:{
                 tasks:[{

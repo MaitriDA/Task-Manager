@@ -5,7 +5,7 @@ import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogActions from '@material-ui/core/DialogActions';
 import { Button,makeStyles } from "@material-ui/core";
 import '../../style/AddTask.css';
-import { useHistory } from 'react-router-dom';
+import { useHistory, useParams } from 'react-router-dom';
 import {addTask} from '../../service/api';
 
 
@@ -23,6 +23,7 @@ const initialValue={
 const AddTask = () => {
     const classes=useStyle();
     const history=useHistory();
+    const {id}=useParams();
     const [open, setOpen] = React.useState(true);
 
     const [task,setTask]=useState(initialValue);
@@ -34,7 +35,7 @@ const AddTask = () => {
     }
 
     const handleDone = async() => {
-        await addTask(task);
+        await addTask(id,task);
         setOpen(false);
         history.goBack();
     };

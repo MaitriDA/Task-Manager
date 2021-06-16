@@ -17,7 +17,7 @@ export const getUser=async()=>{
     }
 }
 
-export const addTask=async(task)=>{
-    return await axios.post(`${url}/add`,task);
+export const addTask=async(id,task)=>{
+    return await axios.post(`${url}/add/${id}`,task);
 }
 
