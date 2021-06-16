@@ -1,3 +1,6 @@
+import axios from 'axios';
+const url='http://localhost:5000';
+
 export const getUser=async()=>{
     try{
         const res = await fetch('/getName');
@@ -13,3 +16,8 @@ export const getUser=async()=>{
         console.log(err);
     }
 }
+
+export const addTask=async(task)=>{
+    return await axios.post(`${url}/add`,task);
+}
+

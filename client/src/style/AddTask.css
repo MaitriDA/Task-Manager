@@ -1,0 +1,17 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap');
+
+
+.addTask_heading{
+    font-family: 'Montserrat', sans-serif;
+    margin-top: 20px;
+    text-align: center;
+    font-size: 25px;
+    color: black;
+}
+
+.addTask_textField{
+    font-family: 'Montserrat', sans-serif;
+    width: 80%;
+    margin: auto;
+    padding: 10px;
+}

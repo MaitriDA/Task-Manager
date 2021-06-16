@@ -2,6 +2,7 @@ const mongoose=require('mongoose');
 const bcrypt=require('bcryptjs');
 const jwt=require('jsonwebtoken');
 const autoincrement=require('mongoose-auto-increment');
+const task=require('./taskSchema');
 
 const userSchema=new mongoose.Schema({
     name:{
@@ -24,6 +25,7 @@ const userSchema=new mongoose.Schema({
         type:String,
         required:true
     },
+    tasks:[task],
     tokens:[
         {
             token:{
