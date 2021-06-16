@@ -15,7 +15,6 @@ app.use(cors());
 app.use(cookieParser());
 app.use(require('./routers/auth'));
 app.use(require('./routers/getUser'));
-app.use(require('./routers/taskMain'));
 
 
 app.listen(PORT,()=>{

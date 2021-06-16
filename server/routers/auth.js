@@ -1,7 +1,7 @@
-//Router code for login and signup
+//auth code for login and signup
 
 const express=require('express');
-const router=express.Router();
+const auth=express.Router();
 const bcrypt=require('bcryptjs');
 const jwt=require('jsonwebtoken');
 
@@ -9,11 +9,11 @@ const jwt=require('jsonwebtoken');
 require('../db/connection');
 const User=require('../models/userSchema');
 
-router.get('/',(req,res)=>{
+auth.get('/',(req,res)=>{
     res.send('hello world from auth.js');
 });
 
-router.post('/signUp', async (req,res)=>{
+auth.post('/signUp', async (req,res)=>{
 
     const {name,email,phone,password,cPassword}=req.body;
     if(!name || !email || !phone || !password || !cPassword){
@@ -57,7 +57,7 @@ router.post('/signUp', async (req,res)=>{
     }
 });
 
-router.post('/login',async (req,res)=>{
+auth.post('/login',async (req,res)=>{
     try{
         const {email,password}=req.body;
 
@@ -87,4 +87,4 @@ router.post('/login',async (req,res)=>{
     }
 });
 
-module.exports=router;
+module.exports=auth;

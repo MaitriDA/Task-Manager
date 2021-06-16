@@ -50,7 +50,7 @@ const Register = () => {
       console.log("Registration Failed!");
     }
     else if(stat===201){
-      toast.success("ok");
+      toast.success("Registration Successful!");
       console.log("Registration Successful!");
       history.push("/login");
     }

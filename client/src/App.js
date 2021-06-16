@@ -5,7 +5,6 @@ import Login from './components/Login';
 import Register from './components/Register';
 import NotFound from './components/NotFound';
 import TaskMain from './components/TaskMain';
-import AddTask from './components/Task/AddTask';
 
 
 const App=()=>{
@@ -29,10 +28,6 @@ const App=()=>{
 
       <Route exact path="/task/:id">
         <TaskMain/>
-      </Route>
-
-      <Route exact path="/add">
-        <AddTask/>
       </Route>
 
       <Route>
