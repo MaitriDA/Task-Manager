@@ -21,3 +21,7 @@ export const addTask=async(id,task)=>{
     return await axios.post(`${url}/add/${id}`,task);
 }
 
+export const getTasks = async (id) => {
+    return await axios.get(`${url}/see/${id}`);
+}
+

@@ -12,13 +12,6 @@
     height: 55px;
     justify-content: space-between;
 }
-a{
-    text-decoration: none;
-    color: #d0efff;
-}
-a:hover{
-    color: #dfd7cc;
-}
 .nav_brand{
     display: flex;
     flex-direction: row;
@@ -29,22 +22,11 @@ a:hover{
     margin-top: 5px;
     color: #d0efff;
 }
-.user_name{
-    font-size: 25px;
-    padding: 5px;
-    margin-top: 5px;
-    color: #d0efff; 
-}
-.logout_taskMain{
+.button_task,.button_logout,.button_note{
+    font-size: 20px;
     margin-right: 50px;
 }
-.addButton_taskMain{
+.button_taskMain{
     width: fit-content;
-    margin: auto;
-    margin-top: 50px;
-}
-.addTaskbutton{
-    background-color: #03254c;
-    color: white;
-    font-family: 'Montserrat', sans-serif;
+    padding: 13px;
 }

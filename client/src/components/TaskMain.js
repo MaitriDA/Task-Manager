@@ -1,10 +1,8 @@
 import React, { useEffect,useState } from 'react';
-import { useHistory } from 'react-router';
-import {NavLink, useParams} from 'react-router-dom';
+import {NavLink} from 'react-router-dom';
 import '../style/TaskMain.css';
-import { Button, Table, TableBody, TableCell, TableHead, TableRow } from "@material-ui/core";
-import { makeStyles } from '@material-ui/core';
 import {getUser} from '../service/api';
+import SeeTask from '../components/Tasks/SeeTasks';
 
 
 const TaskMain=()=>{
@@ -22,18 +20,14 @@ const TaskMain=()=>{
     <div>
       <header className="navbar_main">
         <div className="nav_brand">My Brand</div>
-        <div className="user_name">Hello, {user.name} !!</div>
-        <div className="user_name">
-        <NavLink to="/" className="logout_taskMain">Logout</NavLink>
+        {/* <div className="user_name">Hello, {user.name} !!</div> */}
+        <div className="button_taskMain">
+          <NavLink to={`/task/${user._id}/add`} className="button_task">ADD Task</NavLink>
+          <NavLink to={`/note/${user._id}/add`} className="button_note">ADD Note</NavLink>
+          <NavLink to="/" className="button_logout">Logout</NavLink>
         </div>
       </header>
-      <div className="taskMainContainer">
-        <div className="addButton_taskMain">
-        <button class="btn addTaskbutton">
-        <NavLink to={`/task/${user._id}/add`}>ADD Task</NavLink>
-        </button>
-        </div>
-      </div>
+      <SeeTask/>
     </div>
     
   )

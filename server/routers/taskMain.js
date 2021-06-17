@@ -10,9 +10,7 @@ const Task=require('../models/taskSchema');
 taskMain.post('/add/:id',async (req,res)=>{
     const task=req.body;
     const id=req.params.id;
-    console.log(id);
-    try{
-        console.log('inside try block');        
+    try{     
         const user=await User.findOneAndUpdate({
             _id:id
         },{
@@ -30,5 +28,19 @@ taskMain.post('/add/:id',async (req,res)=>{
         res.json(error);
     }
 });
+
+taskMain.get('/see/:id',async (req,res)=>{
+    const task=req.body;
+    const id=req.params.id;
+    console.log(id);
+    try{     
+        const task=await User.find({_id:id},{_id:0,tasks:1});
+        console.log(task);
+        res.send(task);
+    }catch(error){
+        res.json(error);
+    }
+});
+
 
 module.exports=taskMain;
