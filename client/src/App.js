@@ -31,7 +31,7 @@ const App=()=>{
       </Route>
 
       <Route exact path="/task/:id/add">
-      <TaskMain/>
+        <TaskMain/>
         <AddTask/>
       </Route>
 

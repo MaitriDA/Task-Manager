@@ -17,7 +17,8 @@ taskMain.post('/add/:id',async (req,res)=>{
             $push:{
                 tasks:[{
                     title:task.title,
-                    description:task.description
+                    description:task.description,
+                    status:task.status
                 }]
             }
         })
