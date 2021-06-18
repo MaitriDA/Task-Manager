@@ -32,7 +32,6 @@ const SeeTask = () => {
 
   return (
     <div>
-      <div>hello from see task</div>
       <div>
          {
              tasks.map(task=>(

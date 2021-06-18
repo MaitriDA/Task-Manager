@@ -4,12 +4,16 @@
     margin: 0px;
     padding: 0px;
 }
+
+.taskMain_container{
+    height: 100vh;
+}
 .navbar_main{
     display: flex;
     flex-direction: row;
     background-color: #03254c;
     font-family: 'Montserrat', sans-serif;
-    height: 55px;
+    height: 9%;
     justify-content: space-between;
 }
 .nav_brand{
@@ -29,4 +33,42 @@
 .button_taskMain{
     width: fit-content;
     padding: 13px;
+}
+.contentMain{
+    height: 91%;
+    display: flex;
+    flex-direction: row;
+    padding: 10px;
+}
+.notes_date_notification{
+    width: 65%;
+    margin-right: 5px;
+}
+.task_container{
+    width: 35%;
+    border: 1px solid blue;
+    margin-left: 5px;
+}
+.date_notification{
+    height: 40%;
+    display: flex;
+    flex-direction: row;
+    padding-bottom: 10px;
+}
+.note_container{
+    height: 60%;
+    border: 1px solid green;
+    margin-bottom: 10px;
+}
+.date_continer{
+    height: 100%;
+    width: 40%;
+    border: 1px solid red;
+    margin-right: 5px;
+}
+.notification_continer{
+    height: 100%;
+    width: 60%;
+    border: 1px solid red;
+    margin-left: 5px;
 }
