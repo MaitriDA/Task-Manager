@@ -6,7 +6,7 @@ import DialogActions from '@material-ui/core/DialogActions';
 import { Button,makeStyles } from "@material-ui/core";
 import '../../style/AddTask.css';
 import { useHistory, useParams } from 'react-router-dom';
-import {addTask} from '../../service/api';
+import {getSingleTask} from '../../service/api';
 import Radio from '@material-ui/core/Radio';
 import RadioGroup from '@material-ui/core/RadioGroup';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
@@ -16,29 +16,30 @@ import FormLabel from '@material-ui/core/FormLabel';
 
 
 
-const AddTask = () => {
+const EditTask = () => {
     const {id}=useParams();
+    const {id2}=useParams();
+    const history=useHistory();
     const [open, setOpen] = React.useState(true);
 
-    
-
-    
-
-    
-
-  
-
-  
     const handleDone = async() => {
-        
+        history.push(`/task/${id}`);
         setOpen(false);
         
     };
 
     const handleCancel = () => {
+        history.push(`/task/${id}`);
         setOpen(false);
         
     };
+    const getTaskData=async()=>{
+        const response=await getSingleTask(id,id2);
+        console.log(response);
+    }
+    useEffect(()=>{
+        getTaskData();
+    },[]);
   return (
     <div>
       <Dialog open={open} onClose={handleCancel} aria-labelledby="form-dialog-title" maxWidth="xl">
@@ -63,4 +64,4 @@ Hello
   );
 };
 
-export default AddTask;
+export default EditTask;

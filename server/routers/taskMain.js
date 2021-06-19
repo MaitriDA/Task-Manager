@@ -31,14 +31,25 @@ taskMain.post('/add/:id',async (req,res)=>{
 });
 
 taskMain.get('/see/:id',async (req,res)=>{
-    const task=req.body;
     const id=req.params.id;
-    console.log(id);
     try{     
         const task=await User.find({_id:id},{_id:0,tasks:1});
-        console.log(task);
         res.send(task);
     }catch(error){
+        res.json(error);
+    }
+});
+
+taskMain.get('/:id1/get/:id2',async (req,res)=>{
+    const id1=req.params.id1;
+    const id2=req.params.id2;
+    console.log("ID1",id1,"ID2",id2);
+    try{
+        
+        res.send('ok');
+        
+    }
+    catch(error){
         res.json(error);
     }
 });

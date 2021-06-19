@@ -33,12 +33,12 @@ const SeeTask = () => {
     const handleEdit=()=>{
       console.log('hello');
     }
-  return (
+  return(
     <div>
       <div>
          {
              tasks.map(task=>(
-               <NavLink to={`/task/${id}/edit`}>
+               <NavLink to={`/task/${id}/edit/${task._id}`}>
 
                <TaskCard
                  _id={task._id}

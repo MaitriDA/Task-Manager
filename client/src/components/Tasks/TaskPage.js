@@ -81,7 +81,7 @@ export default function TaskPage() {
       </AppBar>
       <TabPanel value={value} index={0} className="tabPanelClass">
       
-        <SeeTask/>
+         <SeeTask/> 
 
       </TabPanel>
       <TabPanel value={value} index={1}>
