@@ -6,7 +6,7 @@ import SeeTask from '../components/Tasks/SeeTasks';
 import TaskPage from '../components/Tasks/TaskPage.js';
 
 const TaskMain=()=>{
-  const [user,setUser]=useState({});
+  const [user,setUser]=useState([]);
   const callgetUser = async () => {
     const result=await getUser();
     console.log(result)

@@ -45,8 +45,9 @@ taskMain.get('/:id1/get/:id2',async (req,res)=>{
     const id2=req.params.id2;
     console.log("ID1",id1,"ID2",id2);
     try{
-        
-        res.send('ok');
+        const task=await User.find({_id:id1},{tasks:{_id:id2}})
+        console.log(task);
+        res.send(task);
         
     }
     catch(error){
