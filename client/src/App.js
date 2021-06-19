@@ -6,13 +6,14 @@ import Register from './components/Register';
 import NotFound from './components/NotFound';
 import TaskMain from './components/TaskMain';
 import AddTask from './components/Tasks/AddTask';
+import EditTask from './components/Tasks/EditTask';
 
 const App=()=>{
   
   return(
     <div>
     <BrowserRouter>
-      <Switch>
+      
 
       <Route exact path="/">
         <Home/>
@@ -35,10 +36,15 @@ const App=()=>{
         <AddTask/>
       </Route>
 
-      <Route>
-        <NotFound/>
+      <Route exact path="/task/:id/edit">
+        <TaskMain/>
+        <EditTask/>
       </Route>
-      </Switch>
+
+      {/* <Route>
+        <NotFound/>
+      </Route> */}
+      
     </BrowserRouter>
 
     </div>

@@ -7,6 +7,8 @@ import Tab from '@material-ui/core/Tab';
 import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
 import SeeTask from '../Tasks/SeeTasks';
+import '../../style/TaskPage.css';
+
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -77,8 +79,10 @@ export default function TaskPage() {
           <Tab className={classes.tab} label="Done" {...a11yProps(3)} />
         </Tabs>
       </AppBar>
-      <TabPanel value={value} index={0}>
+      <TabPanel value={value} index={0} className="tabPanelClass">
+      
         <SeeTask/>
+
       </TabPanel>
       <TabPanel value={value} index={1}>
         To Do

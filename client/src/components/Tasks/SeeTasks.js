@@ -1,4 +1,5 @@
 import React, {useEffect, useState} from 'react';
+import {NavLink} from 'react-router-dom';
 import TextField from '@material-ui/core/TextField';
 import Dialog from '@material-ui/core/Dialog';
 import DialogContentText from '@material-ui/core/DialogContentText';
@@ -8,6 +9,7 @@ import '../../style/AddTask.css';
 import { useHistory, useParams } from 'react-router-dom';
 import {addTask} from '../../service/api';
 import { getTasks } from '../../service/api';
+import TaskCard from './TaskCard';
 
 const useStyle=makeStyles({
     
@@ -21,21 +23,29 @@ const SeeTask = () => {
 
     const getAllTasks=async()=>{
         const response=await getTasks(id);
-        console.log(response.data[0].tasks)
         setTasks(response.data[0].tasks);
-        console.log(tasks);
     }
 
     useEffect(()=>{
         getAllTasks();
     },[]);
 
+    const handleEdit=()=>{
+      console.log('hello');
+    }
   return (
     <div>
       <div>
          {
              tasks.map(task=>(
-                 <div>{task.title}</div>
+               <NavLink to={`/task/${id}/edit`}>
+
+               <TaskCard
+                 _id={task._id}
+                 title={task.title}
+                 description={task.description}
+               />
+               </NavLink>
              ))
          }
       </div>
