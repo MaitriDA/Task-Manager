@@ -25,32 +25,28 @@ const SeeTask = () => {
         const response=await getTasks(id);
         console.log(response.data)
         setTasks(response.data);
-        console.log(tasks)
     }
 
     useEffect(()=>{
         getAllTasks();
     },[]);
 
-    const handleEdit=()=>{
-      console.log('hello');
-    }
   return(
     <div>
       <div>
          {
              tasks.map(task=>(
-               <NavLink to={`/task/${id}/edit/${task._id}`}>
+               
 
                <TaskCard
                  _id={task._id}
                  title={task.title}
                  description={task.description}
                />
-               </NavLink>
+               
              ))
          }
-      </div>
+      </div> 
     </div>
   );
 };

@@ -29,3 +29,7 @@ export const getSingleTask=async(id1,id2)=>{
     return await axios.get(`${url}/${id1}/get/${id2}`);
 }
 
+export const deleteTask=async(id1,id2)=>{
+    return await axios.delete(`${url}/${id1}/delete/${id2}`);
+}
+

@@ -40,15 +40,6 @@ const AddTask = () => {
     const onValueChange=(e)=>{
         setTask({...task,[e.target.name]:e.target.value})
     }
-
-    const [value, setValue] = React.useState('todo');
-
-  const handleChange = (event) => {
-    setValue(event.target.value);
-    setTask({...task,"status":value})
-  };
-
-  console.log(task);
     const handleDone = async() => {
         await addTask(id,task);
         setOpen(false);
@@ -86,7 +77,7 @@ const AddTask = () => {
         <div className="stausBox">
 
         <FormControl component="fieldset">
-      <RadioGroup aria-label="task" name="task1" value={value} onChange={handleChange}>
+      <RadioGroup aria-label="task" name="status" value={status} onChange={(e)=>onValueChange(e)}>
         <FormControlLabel value="todo" control={<Radio/>} label="To Do"/>
         <FormControlLabel value="inProgress" control={<Radio />} label="In Progress" />
       </RadioGroup>

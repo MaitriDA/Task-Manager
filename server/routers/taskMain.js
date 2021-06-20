@@ -48,4 +48,18 @@ taskMain.get('/:id1/get/:id2',async (req,res)=>{
 });
 
 
+taskMain.delete('/:id1/delete/:id2',async (req,res)=>{
+    const id1=req.params.id1;
+    const id2=req.params.id2;
+    const task=req.body;
+    const del=new Task(task);
+    try{
+        await Task.deleteOne({_id:id2},del)
+        res.json(task);
+    }
+    catch(error){
+        res.json(error);
+    }
+});
+
 module.exports=taskMain;

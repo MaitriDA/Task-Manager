@@ -1,0 +1,69 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;300;400&display=swap');
+
+.AddToDos{
+  text-align: center;
+  margin-top: 20px;
+  font-size: 25px;
+  color: black;
+}
+.toDoBtn{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  margin-top: 20px;
+}
+.Title{
+  margin-left: 20px;
+  margin-top: 5px;
+  margin-right: 20px;
+}
+.Description{
+  margin-left: 20px;
+  margin-right: 20px;
+  margin-top: 15px;
+}
+
+.content{
+  text-align: left;
+  margin-top: 5px;
+  width: 170px;
+}
+.todoComTitle{
+  margin-top: 5px;
+  font-weight: 500;
+  font-size: 18px;
+  color: black;
+  font-family: 'Montserrat', sans-serif;
+}
+.todoComDis{
+  margin-top: 3px;
+  font-size: 13px;
+  color: gray;
+  font-family: 'Montserrat', sans-serif;
+}
+.todoContentEdit{
+  margin-top: 10px;
+  margin-left: 15px;
+  margin-right: 15px;
+}
+.contentItem{
+  display: flex;
+  flex-direction: row;
+}
+.contentHeading{
+  font-family: 'Montserrat', sans-serif;
+  width:50px;
+  color: black;
+  font-size: 17px;
+  font-weight: 500;
+  
+}
+.contectDes{
+  font-family: 'Montserrat', sans-serif;
+  width: 250px;
+  font-size: 15px;
+  color: black;
+  margin-left: 15px;
+  text-align: right;
+  font-weight: 400;
+}
