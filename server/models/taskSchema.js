@@ -1,6 +1,10 @@
 const mongoose=require('mongoose');
 
 const taskSchema=mongoose.Schema({
+    owner:{
+        type:mongoose.Schema.Types.ObjectId,
+        ref:'User'
+    },
    title:{
        type:String
    },
@@ -12,4 +16,5 @@ const taskSchema=mongoose.Schema({
    }
 });
 
-module.exports=taskSchema;
+const Task=mongoose.model('Task',taskSchema);
+module.exports=Task;

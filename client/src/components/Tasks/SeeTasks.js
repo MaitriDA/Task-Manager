@@ -23,7 +23,9 @@ const SeeTask = () => {
 
     const getAllTasks=async()=>{
         const response=await getTasks(id);
-        setTasks(response.data[0].tasks);
+        console.log(response.data)
+        setTasks(response.data);
+        console.log(tasks)
     }
 
     useEffect(()=>{
