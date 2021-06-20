@@ -67,3 +67,8 @@
   text-align: right;
   font-weight: 400;
 }
+.radioButton{
+    width: 80%;
+    margin-left: 20px;
+    margin-top: 10px;
+}

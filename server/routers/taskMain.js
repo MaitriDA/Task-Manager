@@ -38,7 +38,6 @@ taskMain.get('/:id1/get/:id2',async (req,res)=>{
     const id2=req.params.id2;
     try{
         const task=await Task.find({_id:id2})
-        console.log(task);
         res.send(task);
         
     }
@@ -46,7 +45,34 @@ taskMain.get('/:id1/get/:id2',async (req,res)=>{
         res.json(error);
     }
 });
+// const contact=req.body;
+//     const edit=new Contact(contact);
+//     try{
+//         await Contact.updateOne({_id:req.params.id},edit);
+//         res.json(contact);
+//     }catch(error){
+//         console.log(error);
+//     }
 
+taskMain.put('/edit/:id',async(req,res)=>{
+    const id=req.params.id;
+    const task=req.body;
+    const edit=new Task(task);
+    try{
+        const response=await Task.updateOne({_id:id},{
+            $set:{
+                title:task.title,
+                description:task.description,
+                status:task.status
+            }
+        });
+        console.log(response)
+        res.json('ok');
+    }
+    catch(error){
+        res.json(error);
+    }
+})
 
 taskMain.delete('/:id1/delete/:id2',async (req,res)=>{
     const id1=req.params.id1;

@@ -5,15 +5,15 @@ const taskSchema=mongoose.Schema({
         type:mongoose.Schema.Types.ObjectId,
         ref:'User'
     },
-   title:{
-       type:String
-   },
-   description:{
-       type:String
-   },
-   status:{
-       type:String
-   }
+    title:{
+        type:String
+    },
+    description:{
+        type:String
+    },
+    status:{
+        type:String
+    }
 });
 
 const Task=mongoose.model('Task',taskSchema);

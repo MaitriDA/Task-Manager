@@ -33,3 +33,8 @@ export const deleteTask=async(id1,id2)=>{
     return await axios.delete(`${url}/${id1}/delete/${id2}`);
 }
 
+export const editTask=async(id,task)=>{
+    console.log(id,task);
+    return await axios.put(`${url}/edit/${id}`,task);
+}
+
