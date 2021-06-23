@@ -10,12 +10,10 @@ import { getTasks,deleteTask} from '../../service/api';
 
 
   const ITEM_HEIGHT = 48;
-const TaskCard = ({_id,title,description}) => {
-
+const TaskCard = ({_id,title,description,status}) => {
     const {id}=useParams();
     const [anchorEl, setAnchorEl] = React.useState(null);
   const open = Boolean(anchorEl);
-
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
   };
@@ -23,7 +21,7 @@ const TaskCard = ({_id,title,description}) => {
   const handleClose = () => {
     setAnchorEl(null);
   };
-
+  
   const handleDelete=async()=>{
       await deleteTask(id,_id);
       setAnchorEl(null);
@@ -31,10 +29,14 @@ const TaskCard = ({_id,title,description}) => {
   }
 
     return (
-        <div className="taskCard">
+        <div className={(status==='done' ? 'taskCardDone taskCard':(status==='todo' ? 'taskCardToDo taskCard':'taskCardInProgress taskCard'))}>
             
-            <div className="taskContent">
-                <div className="taskCardTitle">{title}</div>
+            <div className='taskContent'>
+                <div className="titleAndStatus">
+                    <div className="taskCardTitle">{title}</div>
+                    <div className={(status==='done' ? 'taskCardStatusDone taskCardStatus':(status==='todo' ? 'taskCardStatusToDo taskCardStatus':'taskCardStatusInProgress taskCardStatus'))}>{status}</div>
+
+                </div>
                 <div className="taskCardDescription">{description}</div>
             </div>
             

@@ -53,7 +53,7 @@ const AddTask = () => {
   return (
     <div>
       <Dialog open={open} onClose={handleCancel} aria-labelledby="form-dialog-title" maxWidth="xl">
-        <DialogContentText>
+      <DialogContentText>
         <div className="addTask_heading">Add Task Here</div>
         <div className="addTask_textField">
             
@@ -92,7 +92,7 @@ const AddTask = () => {
           <Button onClick={handleDone} color="primary">
             DONE
           </Button>
-        </DialogActions>
+        </DialogActions> 
       </Dialog>
     </div>
   );

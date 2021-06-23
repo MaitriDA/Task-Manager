@@ -7,6 +7,9 @@ import Tab from '@material-ui/core/Tab';
 import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
 import SeeTask from '../Tasks/SeeTasks';
+import SeeToDo from '../Tasks/SeeToDo';
+import SeeDone from '../Tasks/SeeDone';
+import SeeInProgress from '../Tasks/SeeInProgress';
 import '../../style/TaskPage.css';
 
 
@@ -84,13 +87,13 @@ export default function TaskPage() {
 
       </TabPanel>
       <TabPanel value={value} index={1}>
-        To Do
+        <SeeToDo/>
       </TabPanel>
       <TabPanel value={value} index={2}>
-        In Progress
+      <SeeInProgress/>
       </TabPanel>
       <TabPanel value={value} index={3}>
-        Done
+      <SeeDone/>
       </TabPanel>
     </div>
   );

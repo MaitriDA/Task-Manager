@@ -1,5 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;300;400&display=swap');
-
+.dialog{
+    margin-left: 25px;
+    margin-right: 25px;
+    margin-bottom: -20px;
+}
 .AddToDos{
   text-align: center;
   margin-top: 20px;

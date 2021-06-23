@@ -7,28 +7,27 @@ import DialogActions from '@material-ui/core/DialogActions';
 import { Button,makeStyles } from "@material-ui/core";
 import '../../style/AddTask.css';
 import { useHistory, useParams } from 'react-router-dom';
-import {addTask} from '../../service/api';
-import { getTasks } from '../../service/api';
+import { getToDoTasks } from '../../service/api';
 import TaskCard from './TaskCard';
 
 const useStyle=makeStyles({
     
   });
 
-const SeeTask = () => {
+const SeeInProgress = () => {
     const classes=useStyle();
     const history=useHistory();
     const {id}=useParams();
     const [tasks,setTasks]=useState([]);
 
-    const getAllTasks=async()=>{
-        const response=await getTasks(id);
+    const getToDoAllTasks=async()=>{
+        const response=await getToDoTasks(id,"inProgress");
         console.log(response.data)
         setTasks(response.data);
     }
 
     useEffect(()=>{
-        getAllTasks();
+        getToDoAllTasks();
     },[]);
 
   return(
@@ -52,4 +51,4 @@ const SeeTask = () => {
   );
 };
 
-export default SeeTask;
+export default SeeInProgress;

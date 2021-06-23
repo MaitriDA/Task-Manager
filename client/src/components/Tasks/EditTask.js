@@ -21,19 +21,27 @@ const EditTask = () => {
   const history=useHistory();
   const [open, setOpen] = useState(true);
   const [task,setTask]=useState({});
+  const getTaskData=async()=>{
+    const response=await getSingleTask(id,id2);
+    setTask(response.data[0]);
+
+}
+useEffect(()=>{
+    getTaskData();
+},[]);
+console.log(task);
   const initialValue={
     title:task.title,
     description:task.description,
     status:task.status,
   }
     const [editedTask,setEditedTask]=useState(initialValue);
-
+    console.log(editedTask);
     const onValueChange=(e)=>{
       setEditedTask({...editedTask,[e.target.name]:e.target.value})
-  }
+    }
 
     const handleDone = async() => {
-      console.log(editedTask);
         await editTask(id2,editedTask)
         setOpen(false);
         history.push(`/task/${id}`);
@@ -45,14 +53,7 @@ const EditTask = () => {
         setOpen(false);
         
     };
-    const getTaskData=async()=>{
-        const response=await getSingleTask(id,id2);
-        setTask(response.data[0]);
-
-    }
-    useEffect(()=>{
-        getTaskData();
-    },[]);
+    
   return (
     <div>
       <Dialog open={open} onClose={handleCancel} aria-labelledby="form-dialog-title" maxWidth="xl">

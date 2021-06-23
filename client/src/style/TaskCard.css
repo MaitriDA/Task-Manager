@@ -1,14 +1,34 @@
 .taskCard{
-    border: 1px solid red;
-    height: 60px;
+    height: 70px;
     margin-top: 8px;
     margin-bottom: 8px;
-    border-left: 3px solid red;
     padding-left: 20px;
     padding-top: 3px;
     padding-bottom: 3px;
     display: flex;
     flex-direction: row;
+}
+.taskContent{
+    width: 100%;
+}
+.taskCardDone{
+    border: 1px solid green;
+    border-left: 5px solid green;
+}
+.taskCardToDo{
+    border: 1px solid red;
+    border-left: 5px solid red;
+}
+.taskCardInProgress{
+    border: 1px solid orange;
+    border-left: 5px solid orange;
+}
+.titleAndStatus{
+    margin-top: 5px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    
 }
 .taskCardTitle{
     font-size: 18px;
@@ -17,6 +37,29 @@
 }
 .taskCardDescription{
     color: gray;
+}
+.taskCardStatus{
+    color: white;
+    font-weight: 700;
+    font-size: 13px;
+    float: left;
+    border: 1px solid red;
+    padding-left: 5px;
+    padding-right: 5px;
+    border-radius: 10px;
+    height: 21px;
+}
+.taskCardStatusToDo{
+    border: 1px solid red;
+    background-color: red;
+}
+.taskCardStatusDone{
+    border: 1px solid green;
+    background-color: green;
+}
+.taskCardStatusInProgress{
+    border: 1px solid orange;
+    background-color: orange;
 }
 .taskCardMenu{
     margin-left: auto;

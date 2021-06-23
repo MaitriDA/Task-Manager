@@ -25,6 +25,10 @@ export const getTasks = async (id) => {
     return await axios.get(`${url}/see/${id}`);
 }
 
+export const getToDoTasks = async (id,status) => {
+    return await axios.get(`${url}/${status}/${id}`);
+}
+
 export const getSingleTask=async(id1,id2)=>{
     return await axios.get(`${url}/${id1}/get/${id2}`);
 }

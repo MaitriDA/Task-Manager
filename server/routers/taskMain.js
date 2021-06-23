@@ -33,6 +33,18 @@ taskMain.get('/see/:id',async (req,res)=>{
     }
 });
 
+taskMain.get('/:status/:id',async (req,res)=>{
+    const id=req.params.id;
+    const status=req.params.status
+    console.log(status);
+    try{     
+        const task=await Task.find({owner:id,status:status});
+        res.send(task);
+    }catch(error){
+        res.json(error);
+    }
+});
+
 taskMain.get('/:id1/get/:id2',async (req,res)=>{
     const id1=req.params.id1;
     const id2=req.params.id2;
