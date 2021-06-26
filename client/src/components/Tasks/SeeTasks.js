@@ -11,12 +11,8 @@ import {addTask} from '../../service/api';
 import { getTasks } from '../../service/api';
 import TaskCard from './TaskCard';
 
-const useStyle=makeStyles({
-    
-  });
 
 const SeeTask = () => {
-    const classes=useStyle();
     const history=useHistory();
     const {id}=useParams();
     const [tasks,setTasks]=useState([]);

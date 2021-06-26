@@ -40,8 +40,9 @@ const AddNote = () => {
         //await addTask(id,task);
         console.log(note);
         setOpen(false);
-        history.push(`/task/${id}`);
         await addNote(id,note);
+        history.push(`/task/${id}`);
+        //window.location.reload();
     };
 
     const handleCancel = () => {
