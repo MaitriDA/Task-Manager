@@ -41,4 +41,3 @@ export const editTask=async(id,task)=>{
     console.log(id,task);
     return await axios.put(`${url}/edit/${id}`,task);
 }
-

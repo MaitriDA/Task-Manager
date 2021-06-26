@@ -7,6 +7,8 @@ import NotFound from './components/NotFound';
 import TaskMain from './components/TaskMain';
 import AddTask from './components/Tasks/AddTask';
 import EditTask from './components/Tasks/EditTask';
+import AddNote from './components/Notes/AddNote';
+
 
 const App=()=>{
   
@@ -34,6 +36,11 @@ const App=()=>{
       <Route exact path="/task/:id/add">
         <TaskMain/>
         <AddTask/>
+      </Route>
+
+      <Route exact path="/note/:id/add">
+        <TaskMain/>
+        <AddNote/>
       </Route>
 
       <Route exact path="/task/:id/edit/:id2">

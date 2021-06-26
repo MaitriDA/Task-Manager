@@ -7,6 +7,7 @@ require('../db/connection');
 const User=require('../models/userSchema');
 const Task=require('../models/taskSchema');
 
+
 taskMain.post('/add/:id',async (req,res)=>{
     const {title,description,status}=req.body;
     const owner=req.params.id;
@@ -22,9 +23,9 @@ taskMain.post('/add/:id',async (req,res)=>{
         res.json(error);
     }
 });
-
 taskMain.get('/see/:id',async (req,res)=>{
     const id=req.params.id;
+    console.log(id);
     try{     
         const task=await Task.find({owner:id});
         res.send(task);
@@ -32,6 +33,8 @@ taskMain.get('/see/:id',async (req,res)=>{
         res.json(error);
     }
 });
+
+
 
 taskMain.get('/:status/:id',async (req,res)=>{
     const id=req.params.id;
@@ -57,14 +60,6 @@ taskMain.get('/:id1/get/:id2',async (req,res)=>{
         res.json(error);
     }
 });
-// const contact=req.body;
-//     const edit=new Contact(contact);
-//     try{
-//         await Contact.updateOne({_id:req.params.id},edit);
-//         res.json(contact);
-//     }catch(error){
-//         console.log(error);
-//     }
 
 taskMain.put('/edit/:id',async(req,res)=>{
     const id=req.params.id;
@@ -99,5 +94,6 @@ taskMain.delete('/:id1/delete/:id2',async (req,res)=>{
         res.json(error);
     }
 });
+
 
 module.exports=taskMain;

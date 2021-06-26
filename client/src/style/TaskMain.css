@@ -26,7 +26,7 @@
     margin-top: 5px;
     color: #d0efff;
 }
-.button_task,.button_logout,.button_note{
+.button_task,.button_logout,.button_note,.button_channel{
     font-size: 20px;
     margin-right: 50px;
 }
