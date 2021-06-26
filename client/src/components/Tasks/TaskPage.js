@@ -52,7 +52,7 @@ const useStyles = makeStyles({
         fontSize:'15px',
         fontWeight:'600',
         fontFamily:'Montserrat'
-    }
+    },
 });
 
 export default function TaskPage() {

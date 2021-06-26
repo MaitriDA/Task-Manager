@@ -4,6 +4,10 @@ import '../style/TaskMain.css';
 import {getUser} from '../service/api';
 import SeeTask from '../components/Tasks/SeeTasks';
 import TaskPage from '../components/Tasks/TaskPage.js';
+import Date from '../components/DateCard';
+import NotesPage from '../components/Notes/NotesPage';
+
+
 
 const TaskMain=()=>{
   const [user,setUser]=useState([]);
@@ -32,10 +36,14 @@ const TaskMain=()=>{
         <div className="contentMain">
           <div className="notes_date_notification">
             <div className="date_notification">
-              <div className="date_continer">Date</div>
+              <div className="date_continer">
+                <Date/>
+              </div>
               <div className="notification_continer">Notification</div>
             </div>
-            <div className="note_container">Notes</div>
+            <div className="note_container">
+            <NotesPage/>
+            </div>
           </div>
           <div className="task_container">
             <TaskPage/>

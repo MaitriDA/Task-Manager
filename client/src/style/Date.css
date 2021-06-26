@@ -1,0 +1,27 @@
+.userName{
+    font-size: 28px;
+    text-align: center;
+    color: blue;
+}
+.line{
+    border-top: 1px solid blue;
+    width: 90%;
+    margin: auto;
+}
+.dateAndTime{
+    margin: 5px;
+    display: flex;
+    flex-direction: row;
+}
+.dayAndDate{
+    color: black;
+    font-size: 23px;
+    text-align: center;
+    width: 55%;
+}
+.time{
+    font-size: 23px;
+    text-align: center;
+    border: 1x solid red;
+    width: 45%;
+}

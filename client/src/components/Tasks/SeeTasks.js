@@ -20,7 +20,6 @@ const SeeTask = () => {
     const history=useHistory();
     const {id}=useParams();
     const [tasks,setTasks]=useState([]);
-
     const getAllTasks=async()=>{
         const response=await getTasks(id);
         console.log(response.data)

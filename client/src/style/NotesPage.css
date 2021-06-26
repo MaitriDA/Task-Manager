@@ -1,0 +1,11 @@
+.addChannel{
+    border-right: 1px solid rgb(219, 219, 219);
+    background-color: rgb(240, 240, 240);
+}
+.addNote{
+    border-right: 1px solid rgb(219, 219, 219);
+    background-color: rgb(241, 241, 241);
+}
+.navBarNotes{
+    height: 100%;
+}
