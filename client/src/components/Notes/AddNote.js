@@ -6,12 +6,8 @@ import DialogActions from '@material-ui/core/DialogActions';
 import { Button,makeStyles } from "@material-ui/core";
 import '../../style/AddTask.css';
 import { useHistory, useParams } from 'react-router-dom';
-import {addTask} from '../../service/api';
-import Radio from '@material-ui/core/Radio';
-import RadioGroup from '@material-ui/core/RadioGroup';
-import FormControlLabel from '@material-ui/core/FormControlLabel';
-import FormControl from '@material-ui/core/FormControl';
-import FormLabel from '@material-ui/core/FormLabel';
+import {addNote} from '../../service/api';
+
 
 const useStyle=makeStyles({
     textField:{
@@ -24,8 +20,7 @@ const useStyle=makeStyles({
 
 const initialValue={
     title:'',
-    description:'',
-    status:'',
+    description:''
 }
 
 const AddNote = () => {
@@ -34,16 +29,19 @@ const AddNote = () => {
     const {id}=useParams();
     const [open, setOpen] = React.useState(true);
 
-    const [task,setTask]=useState(initialValue);
-    const {title,description,status}=task;
+    const [note,setNote]=useState(initialValue);
+    const {title,description}=note;
 
     const onValueChange=(e)=>{
-        setTask({...task,[e.target.name]:e.target.value})
+        setNote({...note,[e.target.name]:e.target.value})
     }
+    
     const handleDone = async() => {
         //await addTask(id,task);
+        console.log(note);
         setOpen(false);
         history.push(`/task/${id}`);
+        await addNote(id,note);
     };
 
     const handleCancel = () => {

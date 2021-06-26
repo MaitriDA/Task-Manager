@@ -38,6 +38,13 @@ export const deleteTask=async(id1,id2)=>{
 }
 
 export const editTask=async(id,task)=>{
-    console.log(id,task);
     return await axios.put(`${url}/edit/${id}`,task);
+}
+
+export const addNote=async(id,note)=>{
+    return await axios.post(`${url}/addnote/${id}`,note);
+}
+
+export const getNotes=async(id)=>{
+    return await axios.get(`${url}/getNote/${id}`);
 }

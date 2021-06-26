@@ -13,7 +13,6 @@ const TaskMain=()=>{
   const [user,setUser]=useState([]);
   const callgetUser = async () => {
     const result=await getUser();
-    console.log(result)
     setUser(result);
   }
   useEffect(()=>{

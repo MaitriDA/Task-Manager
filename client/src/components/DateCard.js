@@ -7,7 +7,6 @@ const DateCard = () => {
     const [user,setUser]=useState([]);
   const callgetUser = async () => {
     const result=await getUser();
-    console.log(result)
     setUser(result);
   }
   let today = new Date().toLocaleTimeString();

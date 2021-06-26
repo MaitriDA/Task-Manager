@@ -22,7 +22,6 @@ const SeeTask = () => {
     const [tasks,setTasks]=useState([]);
     const getAllTasks=async()=>{
         const response=await getTasks(id);
-        console.log(response.data)
         setTasks(response.data);
     }
 
